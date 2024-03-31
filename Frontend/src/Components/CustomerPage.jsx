@@ -1,17 +1,24 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function CustomerPage() {
+    const navigate = useNavigate();
+
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const { user } = useSelector((state) => state.auth);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_API_URL}customer/contract`);
-                console.log(response.data)
-                setData(response.data);
-                setIsLoading(false);
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}customer/contract/${user._id}`);
+                setTimeout(() => {
+                    setData(response.data);
+                    setIsLoading(false);
+                }, 1000);
             } catch (error) {
                 setIsLoading(false);
             }
@@ -20,32 +27,51 @@ function CustomerPage() {
         fetchData();
     }, []);
 
+    const createContract = () => {
+        navigate('/customer/contract')
+    };
+
     return (
         <div className='customerPanel'>
             <div>
                 {isLoading ? (
-                    <div>Loading...</div>
+                    <div className='loaderContianer'><div className="loader"></div></div>
                 ) : (
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>Name</th>
-                                {/* Add more table headers as needed */}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {data.map((item) => (
-                                <tr key={item.id}>
-                                    <td>{item.id}</td>
-                                    <td>{item.name}</td>
-                                    {/* Add more table cells as needed */}
+                    <div>
+
+                        <div className='customerAactionBar'>
+                            <h2>Total Contracts - {data.length}</h2>
+                            <button onClick={createContract}>
+                                New Contract
+                            </button>
+                        </div>
+
+                        <table id='contract_table'>
+                            <thead>
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>Tittle of Contract</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Contract Status</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {data.map((item, index) => (
+                                    <tr key={index}>
+                                        <td>{index + 1}</td>
+                                        <td>{item.contract_tittle}</td>
+                                        <td>{item.contract_sDate}</td>
+                                        <td>{item.contract_eDate}</td>
+                                        <td>{item.contract_Status}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 )}
             </div>
+
         </div>
     )
 }

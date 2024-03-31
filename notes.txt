@@ -1,10 +1,14 @@
 https://france-exercise-server.vercel.app/
+http://localhost:3000/
 
 france@admin.com
 franceAdmin
 
 singashmeet75@gmail.com
 qazswedcfr
+
+susKaur@gmail.com
+qazxswedcvfrtgb
 
 cutomer panel
     particular customer ke previous contracts

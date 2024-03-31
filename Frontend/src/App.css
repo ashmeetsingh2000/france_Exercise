@@ -192,4 +192,120 @@ nav {
     background: #555;
 }
 
+.customerAactionBar {
+    margin: 10px 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.customerAactionBar button {
+    width: max-content;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    border: 0;
+    outline: 1px solid rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.customerAactionBar button:hover {
+    outline: 2px solid rgba(0, 0, 0, 1);
+    border: 0;
+}
+
+#contract_table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#contract_table td,
+#contract_table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#contract_table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#contract_table tr:hover {
+    background-color: #ddd;
+}
+
+#contract_table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+
+
+
+
+
+
+.newContaractform {
+    width: 100%;
+    margin: 64px 0 0 0;
+    height: calc(100vh - 80px);
+    padding: 0 20px;
+}
+
+.newContaractform h1 {
+    padding: 10px 0 0 0;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.newContaractform .contract-form-container {
+    width: 600px !important;
+    max-width: 100%;
+    padding: 0px 20px;
+    margin: 0 auto;
+}
+
+.newContaractform .contract-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.newContaractform .form-group {
+    margin-bottom: 20px;
+}
+
+.newContaractform label {
+    font-size: 15px;
+}
+
+.newContaractform input[type='text'],
+.newContaractform input[type='date'],
+.newContaractform select,
+.newContaractform textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 10px 0 0 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.newContaractform button[type='submit'] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.newContaractform button[type='submit']:hover {
+    background-color: #0056b3;
+}
+
 /* =========================== [ customerPanel ] =========================== */
