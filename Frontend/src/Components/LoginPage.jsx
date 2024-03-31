@@ -42,11 +42,15 @@ function LoginPage() {
                     ?
                     <div className='loaderContianer'><div className="loader"></div></div>
                     :
-                    <form onSubmit={handleSubmit}>
-                        <input type="email" name="c_email" value={credentials.c_email} onChange={handleChange} placeholder="Email Address" required />
-                        <input type="password" name="c_password" value={credentials.c_password} onChange={handleChange} placeholder="Password" required />
-                        <button type="submit" disabled={loading}>Login</button>
-                    </form>
+                    error
+                        ?
+                        <div></div>
+                        :
+                        <form onSubmit={handleSubmit}>
+                            <input type="email" name="c_email" value={credentials.c_email} onChange={handleChange} placeholder="Email Address" required />
+                            <input type="password" name="c_password" value={credentials.c_password} onChange={handleChange} placeholder="Password" required />
+                            <button type="submit" disabled={loading}>Login</button>
+                        </form>
                 }
             </div>
         </div>

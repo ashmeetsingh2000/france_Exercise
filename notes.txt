@@ -1,1 +1,14 @@
 https://france-exercise-server.vercel.app/
+
+france@admin.com
+franceAdmin
+
+singashmeet75@gmail.com
+qazswedcfr
+
+cutomer panel
+    particular customer ke previous contracts
+    un contract ko review karna
+    create new contract form
+    new contract ko review karna
+    sumit new contract

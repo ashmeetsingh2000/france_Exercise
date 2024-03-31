@@ -44,7 +44,6 @@ export const login = (credentials) => async (dispatch) => {
   try {
     dispatch(loginStart());
     const user = await loginApi(credentials);
-    console.log(user)
     dispatch(loginSuccess(user.data));
     dispatch(loginauthTo(user.data.c_auth));
   } catch (error) {
