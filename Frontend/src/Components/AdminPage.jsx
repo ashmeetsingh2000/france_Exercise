@@ -29,6 +29,10 @@ function AdminPage() {
         navigate('/admin/customer')
     };
 
+    const customerDetail = (index) => {
+        navigate(`/admin/customer-detail/?id=${data[index]._id}`);
+    }
+
     return (
         <>
 
@@ -43,7 +47,7 @@ function AdminPage() {
                             </div>
                             <div className='customersList'>
                                 {data.map((item, index) => (
-                                    <div className="customerDetail_box" key={index}>
+                                    <div className="customerDetail_box" key={index} onClick={() => { customerDetail(index) }}>
                                         <p>{item.c_rank}</p>
                                         <p className='customer_name'>
                                             <span>{item.c_name}</span>

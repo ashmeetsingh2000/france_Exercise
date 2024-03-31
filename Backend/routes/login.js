@@ -57,6 +57,25 @@ router.get('/customer', async (req, res) => {
 // get all customer
 
 // update customer info
+router.get('/customer/:id', async (req, res) => {
+
+    try {
+        const document = await Customer.findOne({ _id: req.params.id });
+
+        if (document) {
+            res.json(document);
+        } else {
+            res.status(404).json({ message: 'Document not found' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+
+});
+// update customer info
+
+// update customer info
 router.put('/customer/:id', async (req, res) => {
 
     const id = req.params.id;
