@@ -16,6 +16,21 @@ router.get('/contract', async (req, res) => {
 // list all contracts
 
 // list all contracts of a single customer
+router.get('/contract/:id', async (req, res) => {
+    try {
+        const contractID = req.params.id;
+        const document = await Contract.findOne({ _id: contractID });
+
+        if (document) {
+            res.json(document);
+        } else {
+            res.status(404).json({ message: 'Document not found' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
 // list all contracts of a single customer
 
 // create a new contract
@@ -49,7 +64,21 @@ router.delete('/contract/:id', async (req, res) => {
 // delete a contract
 
 // update contract status
+router.put('/contract/:id', async (req, res) => {
 
+    const id = req.params.id;
+    const updateFields = req.body;
+
+    try {
+        await Contract.findByIdAndUpdate(id, updateFields, { new: true });
+        return res.status(200).json({ message: 'Contract Status successfully' });
+
+    } catch (error) {
+        console.error('Error updating document:', error);
+        return res.status(500).json({ message: 'Internal server error' });
+    }
+
+});
 // update contract status
 
 module.exports = router;

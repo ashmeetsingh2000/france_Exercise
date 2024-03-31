@@ -64,7 +64,7 @@ router.put('/customer/:id', async (req, res) => {
 
     try {
 
-        let response = await Customer.findByIdAndUpdate(id, updateFields, { new: true });
+        await Customer.findByIdAndUpdate(id, updateFields, { new: true });
         return res.status(200).json({ message: 'Document updated successfully' });
 
     } catch (error) {
