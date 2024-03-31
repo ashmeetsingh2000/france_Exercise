@@ -28,7 +28,7 @@ First Page login
         Email Address - france@admin.com
         Password - franceAdmin
     
-    Testing Customer Credetials
+    Testing Customer Credentials
         Email Address - sam@gmail.com
         Password - samWitviky
 
@@ -42,7 +42,7 @@ Logout Feature resets React Applications state
 admin Panel
     All Customers Api
     create NEW Customer
-    Open Coustomer Details
+    Open Customer Details
         Customer Account Details
             Action - EDIT and DELETE
         Customer Contract Details
@@ -50,11 +50,11 @@ admin Panel
     Action - Edit Customer Account Details
     Action - Delete Customer Account (Delete Customer Account Details ass Well ass All the Customer's Contract)
     Action - View a single selected Customer's Contract
-    ACtion - Approve / Reject Contract.
+    Action - Approve / Reject Contract.
 
 
 customer Panel
-    All Contracts of Customer
+    All Contracts of customer
     Create new Contract
     view Single Contract Detail
 
@@ -75,7 +75,7 @@ Login API:
     Method - POST
     Body - Credentials in JSON
 
-All Customer Detials API:
+All Customer Details API:
     URL - https://france-exercise-server.vercel.app/auth/customer
     Method- GET
 
@@ -130,8 +130,8 @@ Update Contract Status API
 
 ========================= [ Feature Unable to add ] =========================
 
-# Unable to add any Electronic signature integration !
+# Unable to add any Electronic Signature Integration !
 
-Tried my best to figure it out but dispite my all efforts, I was unable to understand the neccessary step to follow in order to integrate it. I will be able to achive it under Professional Person's guidance.
+Tried my best to figure it out but despite my all efforts, I was unable to understand the necessary steps to follow to integrate it. I will be able to achieve it under Professional Person's guidance.
 
 ========================= [ Feature Unable to add ] =========================
