@@ -340,4 +340,175 @@ nav {
     font-weight: 600;
 }
 
+
+.previewContract {
+    width: 100%;
+    margin: 80px 0 0 0;
+    height: auto;
+    padding: 0 20px;
+}
+
+.previewContract h1 {
+    padding: 10px 0 0 0;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px 0;
+    text-align: center;
+}
+
+.contractStatus {
+    width: 100%;
+    display: flex;
+    margin: 10px 0 0 0;
+    justify-content: space-between;
+}
+
+.contractStatus span {
+    padding: 0px 10px;
+    font-weight: 600;
+}
+
 /* =========================== [ customerPanel ] =========================== */
+
+
+/* =========================== [ adminPanel ] =========================== */
+
+.top_bar {
+    width: 100%;
+    margin: 80px 0 0 0;
+    padding: 0 20px;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.top_bar button {
+    width: max-content;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    border: 0;
+    outline: 1px solid rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.top_bar button:hover {
+    outline: 2px solid rgba(0, 0, 0, 1);
+    border: 0;
+}
+
+
+
+
+.customersList {
+    width: 100%;
+    margin: 10px 0 0 0;
+    padding: 0 10px;
+}
+
+.customerDetail_box {
+    width: max-content;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+
+    display: inline-flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.customerDetail_box:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.customer_name {
+    padding: 0 10px;
+}
+
+.customerDetail_box p {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.adminLoaderContianer {
+    width: 100%;
+    margin: 80px 0 0 0;
+}
+
+
+
+
+
+
+.newCustomerForm {
+    width: 100%;
+    margin: 80px 0 0 0;
+    padding: 0 10px;
+}
+
+
+.newCustomerForm h1 {
+    padding: 10px 0 0 0;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 10px 0;
+    text-align: center;
+}
+
+
+.newCustomerForm form {
+    width: 400px;
+    margin: 20px auto 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.newCustomerForm .form-group {
+    margin-bottom: 20px;
+}
+
+.newCustomerForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.newCustomerForm input[type="text"],
+.newCustomerForm input[type="email"],
+.newCustomerForm input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.newCustomerForm button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.newCustomerForm button:hover {
+    background-color: #0056b3;
+}
+
+.radioButtons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.radioButtons label {
+    display: flex;
+    justify-content: space-between;
+}
+
+.radioButtons label input {
+    margin: 0px 5px;
+}
+
+/* =========================== [ adminPanel ] =========================== */

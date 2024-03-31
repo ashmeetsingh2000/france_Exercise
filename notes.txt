@@ -16,3 +16,14 @@ cutomer panel
     create new contract form
     new contract ko review karna
     sumit new contract
+
+
+
+make testitng contracts
+
+
+ c_name
+ c_email
+ c_password
+ c_type
+ c_rank

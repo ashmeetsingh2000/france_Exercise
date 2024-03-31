@@ -1,13 +1,17 @@
 import './App.css';
+
 import LoginPage from './Components/LoginPage';
 import AdminPage from './Components/AdminPage'
 import CustomerPage from './Components/CustomerPage'
 import CustomerContract from './Components/CustomerContract';
 import ContractPreview from './Components/ContractPreview';
-import NoPage from './Components/NoPage'
+import NewCustomer from './Components/NewCustomer';
+
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
+
 import FixedTopBar from './Components/FixedTopBar';
+
 function App() {
   const { isAuthenticated, authTo } = useSelector((state) => state.auth);
   return (
@@ -18,10 +22,10 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginPage />} />
           <Route path="/admin" element={isAuthenticated ? <AdminPage /> : <><Navigate to="/" replace /></>} />
+          <Route path="/admin/customer" element={isAuthenticated ? <NewCustomer /> : <><Navigate to="/" replace /></>} />
           <Route path="/customer" element={isAuthenticated ? <CustomerPage /> : <><Navigate to="/" replace /></>} />
           <Route path="/customer/contract" element={isAuthenticated ? <CustomerContract /> : <><Navigate to="/" replace /></>} />
           <Route path="/customer/contract-preview" element={isAuthenticated ? <ContractPreview /> : <><Navigate to="/" replace /></>} />
-          {/* <Route path="*" element={<NoPage />} /> */}
         </Routes>
       </BrowserRouter>
 

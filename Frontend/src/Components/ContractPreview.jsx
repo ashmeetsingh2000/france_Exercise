@@ -11,25 +11,50 @@ function ContractPreview() {
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             const response = await axios.get(`${process.env.REACT_APP_API_URL}customer/contractpreview/${id}`);
-    //             setTimeout(() => {
-    //                 setData(response.data);
-    //                 setIsLoading(false);
-    //             }, 1000);
-    //         } catch (error) {
-    //             setIsLoading(false);
-    //         }
-    //     };
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}customer/contractpreview/${id}`);
+                setTimeout(() => {
+                    setData(response.data);
+                    setIsLoading(false);
+                }, 1000);
+            } catch (error) {
+                setIsLoading(false);
+            }
+        };
 
-    //     fetchData();
-    // }, []);
+        fetchData();
+    }, []);
 
 
     return (
-        <div>ContractPreview</div>
+        <div className='previewContract'>
+            {
+                isLoading
+                    ?
+                    (<div className='loaderContianer'><div className="loader"></div></div>)
+                    :
+                    (
+                        <div className="contractPreviewBox">
+                            <h1>{data.contract_tittle}</h1>
+                            <p>{data.contract_body}</p>
+                            <div className="start_end_date">
+                                Contract Duration:
+                                <div>
+                                    <span>{data.contract_sDate}</span>
+                                    To
+                                    <span>{data.contract_eDate}</span>
+                                </div>
+                            </div>
+                            <div className="contractStatus">
+                                Contract Status:
+                                <span>{data.contract_Status}</span>
+                            </div>
+                        </div>
+                    )
+            }
+        </div>
     )
 }
 
