@@ -31,6 +31,10 @@ function CustomerPage() {
         navigate('/customer/contract')
     };
 
+    const openContract = (index) => {
+        navigate(`/customer/contract-preview/?id=${data[index]._id}`);
+    }
+
     return (
         <div className='customerPanel'>
             <div>
@@ -45,29 +49,35 @@ function CustomerPage() {
                                 New Contract
                             </button>
                         </div>
+                        {
+                            data.length != 0
+                                ?
+                                <table id='contract_table'>
+                                    <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Tittle of Contract</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Contract Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {data.map((item, index) => (
+                                            <tr key={index} onClick={() => { openContract(index) }}>
+                                                <td>{index + 1}</td>
+                                                <td>{item.contract_tittle}</td>
+                                                <td>{item.contract_sDate}</td>
+                                                <td>{item.contract_eDate}</td>
+                                                <td>{item.contract_Status}</td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
 
-                        <table id='contract_table'>
-                            <thead>
-                                <tr>
-                                    <th>S.No</th>
-                                    <th>Tittle of Contract</th>
-                                    <th>Start Date</th>
-                                    <th>End Date</th>
-                                    <th>Contract Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {data.map((item, index) => (
-                                    <tr key={index}>
-                                        <td>{index + 1}</td>
-                                        <td>{item.contract_tittle}</td>
-                                        <td>{item.contract_sDate}</td>
-                                        <td>{item.contract_eDate}</td>
-                                        <td>{item.contract_Status}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
+                                :
+                                <div className='noPreviosContract'>No Previos Contracts <span onClick={createContract}>Add Contract</span></div>
+                        }
                     </div>
                 )}
             </div>

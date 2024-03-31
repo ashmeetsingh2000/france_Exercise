@@ -18,8 +18,8 @@ router.get('/contract', async (req, res) => {
 // list all contracts of a single customer
 router.get('/contract/:id', async (req, res) => {
     try {
-        const contractID = req.params.id;
-        const document = await Contract.find({ customer_Id: contractID });
+        const customerID = req.params.id;
+        const document = await Contract.find({ customer_Id: customerID });
 
         if (document) {
             res.json(document);
@@ -32,6 +32,24 @@ router.get('/contract/:id', async (req, res) => {
     }
 });
 // list all contracts of a single customer
+
+// get a single contracts of a customer
+router.get('/contractpreview/:id', async (req, res) => {
+    try {
+        const contractID = req.params.id;
+        const document = await Contract.findOne({ _Id: contractID });
+
+        if (document) {
+            res.json(document);
+        } else {
+            res.status(404).json({ message: 'Document not found' });
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+// get a single contracts of a customer
 
 // create a new contract
 router.post('/contract', async (req, res) => {

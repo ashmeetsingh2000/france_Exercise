@@ -246,13 +246,25 @@ nav {
 
 
 
+.noPreviosContract {
+    width: 100%;
+    font-size: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+.noPreviosContract span {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
 
 
 
 .newContaractform {
     width: 100%;
     margin: 64px 0 0 0;
-    height: calc(100vh - 80px);
+    height: auto;
     padding: 0 20px;
 }
 
@@ -295,7 +307,7 @@ nav {
     border-radius: 4px;
 }
 
-.newContaractform button[type='submit'] {
+.newContaractform button {
     padding: 10px 20px;
     background-color: #007bff;
     color: #fff;
@@ -304,8 +316,28 @@ nav {
     cursor: pointer;
 }
 
-.newContaractform button[type='submit']:hover {
+.newContaractform button:hover {
     background-color: #0056b3;
+}
+
+.contractPreviewBox {
+    margin: 0 0 20px 0;
+}
+
+.contractPreviewBox p {
+    margin: 20px 0;
+}
+
+.start_end_date {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+.start_end_date span {
+    padding: 0px 10px;
+    font-weight: 600;
 }
 
 /* =========================== [ customerPanel ] =========================== */
