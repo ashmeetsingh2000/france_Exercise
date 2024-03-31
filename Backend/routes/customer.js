@@ -37,7 +37,7 @@ router.get('/contract/:id', async (req, res) => {
 router.get('/contractpreview/:id', async (req, res) => {
     try {
         const contractID = req.params.id;
-        const document = await Contract.findOne({ _Id: contractID });
+        const document = await Contract.findOne({ _id: contractID });
 
         if (document) {
             res.json(document);
