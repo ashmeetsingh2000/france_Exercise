@@ -8,7 +8,8 @@ function CustomerPage() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_API_URL}customer/contract`); // Replace '/api/data' with your actual API endpoint
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}customer/contract`);
+                console.log(response.data)
                 setData(response.data);
                 setIsLoading(false);
             } catch (error) {
