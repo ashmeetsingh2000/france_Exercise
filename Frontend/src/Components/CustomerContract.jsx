@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 function CustomerContract() {
     const navigate = useNavigate();
     const { user } = useSelector((state) => state.auth);
+    const [isLoading, setIsLoading] = useState(false);
 
     const [preview, setpreview] = useState(false)
 
@@ -40,6 +41,7 @@ function CustomerContract() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
+            setIsLoading(true)
             await axios.post(`${process.env.REACT_APP_API_URL}customer/contract`, formData);
             alert('New Contract Created');
             setFormData({
@@ -51,6 +53,7 @@ function CustomerContract() {
                 contract_Status: ''
             });
             navigate('/customer')
+            setIsLoading(false)
         } catch (error) {
             console.error('Error submitting contract:', error);
             alert('Failed to submit contract. Please try again later.');
@@ -60,83 +63,90 @@ function CustomerContract() {
     return (
         <div className='newContaractform'>
             <div className="contract-form-container">
-                <form onSubmit={handleSubmit} className="contract-form">
-                    {!preview
-                        ?
-                        (
-                            <>
-                                <h1>Contract Form</h1>
-                                <div className="form-group">
-                                    <label htmlFor="contract_tittle">Contract Title:</label>
-                                    <input
-                                        type="text"
-                                        id="contract_tittle"
-                                        name="contract_tittle"
-                                        value={formData.contract_tittle}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="contract_body">Contract Body:</label>
-                                    <textarea
-                                        id="contract_body"
-                                        name="contract_body"
-                                        value={formData.contract_body}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="contract_sDate">Start Date:</label>
-                                    <input
-                                        type="date"
-                                        id="contract_sDate"
-                                        name="contract_sDate"
-                                        value={formData.contract_sDate}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="contract_eDate">End Date:</label>
-                                    <input
-                                        type="date"
-                                        id="contract_eDate"
-                                        name="contract_eDate"
-                                        value={formData.contract_eDate}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-                                <button onClick={prviewChange}>Preview Contract</button>
+                <h1>Contract Form</h1>
+                {isLoading
+                    ? (<div className='adminLoaderContianer'><div className="loader"></div></div>)
+                    : (
+                        <>
 
-                            </>
-                        )
-                        :
-                        (
-                            <>
+                            <form onSubmit={handleSubmit} className="contract-form">
+                                {!preview
+                                    ?
+                                    (
+                                        <>
+                                            <div className="form-group">
+                                                <label htmlFor="contract_tittle">Contract Title:</label>
+                                                <input
+                                                    type="text"
+                                                    id="contract_tittle"
+                                                    name="contract_tittle"
+                                                    value={formData.contract_tittle}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="contract_body">Contract Body:</label>
+                                                <textarea
+                                                    id="contract_body"
+                                                    name="contract_body"
+                                                    value={formData.contract_body}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="contract_sDate">Start Date:</label>
+                                                <input
+                                                    type="date"
+                                                    id="contract_sDate"
+                                                    name="contract_sDate"
+                                                    value={formData.contract_sDate}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                            <div className="form-group">
+                                                <label htmlFor="contract_eDate">End Date:</label>
+                                                <input
+                                                    type="date"
+                                                    id="contract_eDate"
+                                                    name="contract_eDate"
+                                                    value={formData.contract_eDate}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
+                                            <button onClick={prviewChange}>Preview Contract</button>
 
-                                <div className="contractPreviewBox">
-                                    <h1>{formData.contract_tittle}</h1>
-                                    <p>{formData.contract_body}</p>
-                                    <div className="start_end_date">
-                                        Contract Duration:
-                                        <div>
-                                            <span>{formData.contract_sDate}</span>
-                                            To
-                                            <span>{formData.contract_eDate}</span>
-                                        </div>
-                                    </div>
-                                </div>
+                                        </>
+                                    )
+                                    :
+                                    (
+                                        <>
 
-                                <button type="submit">Submit</button>
-                            </>
-                        )
-                    }
-                </form>
+                                            <div className="contractPreviewBox">
+                                                <h1>{formData.contract_tittle}</h1>
+                                                <p>{formData.contract_body}</p>
+                                                <div className="start_end_date">
+                                                    Contract Duration:
+                                                    <div>
+                                                        <span>{formData.contract_sDate}</span>
+                                                        To
+                                                        <span>{formData.contract_eDate}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <button type="submit">Submit</button>
+                                        </>
+                                    )
+                                }
+                            </form>
+                        </>)}
             </div>
         </div>
+
     );
 }
 

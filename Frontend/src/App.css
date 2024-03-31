@@ -488,6 +488,7 @@ nav {
 
 .newCustomerForm .form-group {
     margin-bottom: 20px;
+    position: relative;
 }
 
 .newCustomerForm label {
@@ -502,6 +503,15 @@ nav {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+.showHideButton {
+    width: max-content;
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    font-size: 13px;
+    cursor: pointer;
 }
 
 .newCustomerForm button {

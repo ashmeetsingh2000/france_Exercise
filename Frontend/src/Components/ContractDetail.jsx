@@ -12,6 +12,7 @@ function ContractDetail() {
 
     const [data, setData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [updateLoading, setupdateLoading] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -36,11 +37,12 @@ function ContractDetail() {
             if (result) {
 
                 try {
+                    setupdateLoading(true)
                     await axios.put(`${process.env.REACT_APP_API_URL}customer/contract/${id}`, {
                         "contract_Status": "Approved"
                     });
                     navigate(`/admin/customer-detail/?id=${data.customer_Id}`);
-
+                    setupdateLoading(false)
                 } catch (error) {
                     console.error('Error updating data:', error);
                 }
@@ -54,11 +56,12 @@ function ContractDetail() {
             if (result) {
 
                 try {
+                    setupdateLoading(true)
                     await axios.put(`${process.env.REACT_APP_API_URL}customer/contract/${id}`, {
                         "contract_Status": "Rejected"
                     });
                     navigate(`/admin/customer-detail/?id=${data.customer_Id}`);
-
+                    setupdateLoading(false)
                 } catch (error) {
                     console.error('Error updating data:', error);
                 }
@@ -78,25 +81,33 @@ function ContractDetail() {
                     :
                     (
                         <>
-                            <div className="contract_wrapper">
-                                <div className="contractPreviewBox">
-                                    <h1>{data.contract_tittle}</h1>
-                                    <p>{data.contract_body}</p>
-                                    <div className="start_end_date">
-                                        Contract Duration:
-                                        <div>
-                                            <span>{data.contract_sDate}</span>
-                                            To
-                                            <span>{data.contract_eDate}</span>
+                            {updateLoading
+                                ?
+                                (<div className='loaderContianer'><div className="loader"></div></div>)
+                                :
+                                (
+                                    <>
+                                        <div className="contract_wrapper">
+                                            <div className="contractPreviewBox">
+                                                <h1>{data.contract_tittle}</h1>
+                                                <p>{data.contract_body}</p>
+                                                <div className="start_end_date">
+                                                    Contract Duration:
+                                                    <div>
+                                                        <span>{data.contract_sDate}</span>
+                                                        To
+                                                        <span>{data.contract_eDate}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="contractActionButtons">
-                                <button onClick={() => { contactAction('approve') }}>Approve Contract</button>
-                                <button onClick={() => { contactAction('reject') }}>Reject Contract</button>
-                            </div>
-
+                                        <div className="contractActionButtons">
+                                            <button onClick={() => { contactAction('approve') }}>Approve Contract</button>
+                                            <button onClick={() => { contactAction('reject') }}>Reject Contract</button>
+                                        </div>
+                                    </>
+                                )
+                            }
                         </>
                     )
             }

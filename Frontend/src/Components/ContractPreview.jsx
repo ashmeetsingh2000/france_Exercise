@@ -15,10 +15,8 @@ function ContractPreview() {
         const fetchData = async () => {
             try {
                 const response = await axios.get(`${process.env.REACT_APP_API_URL}customer/contractpreview/${id}`);
-                setTimeout(() => {
-                    setData(response.data);
-                    setIsLoading(false);
-                }, 1000);
+                setData(response.data);
+                setIsLoading(false);
             } catch (error) {
                 setIsLoading(false);
             }
