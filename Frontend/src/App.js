@@ -7,6 +7,8 @@ import CustomerContract from './Components/CustomerContract';
 import ContractPreview from './Components/ContractPreview';
 import NewCustomer from './Components/NewCustomer';
 import CustomerDetail from './Components/CustomerDetail';
+import CustomerDetailEdit from './Components/CustomerDetailEdit';
+import ContractDetail from './Components/ContractDetail';
 
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
@@ -25,6 +27,8 @@ function App() {
           <Route path="/admin" element={isAuthenticated ? <AdminPage /> : <><Navigate to="/" replace /></>} />
           <Route path="/admin/customer" element={isAuthenticated ? <NewCustomer /> : <><Navigate to="/" replace /></>} />
           <Route path="/admin/customer-detail" element={isAuthenticated ? <CustomerDetail /> : <><Navigate to="/" replace /></>} />
+          <Route path="/admin/customer-detail-edit" element={isAuthenticated ? <CustomerDetailEdit /> : <><Navigate to="/" replace /></>} />
+          <Route path="/admin/contract-detail" element={isAuthenticated ? <ContractDetail /> : <><Navigate to="/" replace /></>} />
           <Route path="/customer" element={isAuthenticated ? <CustomerPage /> : <><Navigate to="/" replace /></>} />
           <Route path="/customer/contract" element={isAuthenticated ? <CustomerContract /> : <><Navigate to="/" replace /></>} />
           <Route path="/customer/contract-preview" element={isAuthenticated ? <ContractPreview /> : <><Navigate to="/" replace /></>} />

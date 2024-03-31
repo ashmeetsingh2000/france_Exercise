@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 const Customer = require('../models/customermodel');
+const Contract = require('../models/contractmodel');
 
 // verfiy admin/customer
 router.post('/verify', async (req, res) => {
@@ -100,12 +101,13 @@ router.delete('/delete/:id', async (req, res) => {
 
         const coustomerId = req.params.id;
 
-        // Delete User contracts
-
-        // Delete User contracts
+        // Delete Customer contracts
+        const filter = req.body;
+        await Contract.deleteMany(filter);
+        // Delete Customer contracts
 
         await Customer.findByIdAndDelete(coustomerId);
-        res.json({ message: 'Customer deleted' });
+        res.json({ message: 'Customer deleted with all Contracts' });
 
     } catch (err) {
         console.error(err.message);

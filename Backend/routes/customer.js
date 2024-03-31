@@ -65,22 +65,6 @@ router.post('/contract', async (req, res) => {
 });
 // create a new contract
 
-// delete a contract
-router.delete('/contract/:id', async (req, res) => {
-    try {
-
-        const contractId = req.params.id;
-
-        await Contract.findByIdAndDelete(contractId);
-        res.json({ message: 'Contract deleted' });
-
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send('Server Error');
-    }
-});
-// delete a contract
-
 // update contract status
 router.put('/contract/:id', async (req, res) => {
 

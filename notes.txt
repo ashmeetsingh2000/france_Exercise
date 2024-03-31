@@ -1,29 +1,11 @@
 https://france-exercise-server.vercel.app/
-http://localhost:3000/
 
 france@admin.com
 franceAdmin
 
-singashmeet75@gmail.com
-qazswedcfr
-
-susKaur@gmail.com
-qazxswedcvfrtgb
-
-cutomer panel
-    particular customer ke previous contracts
-    un contract ko review karna
-    create new contract form
-    new contract ko review karna
-    sumit new contract
-
-
-
 make testitng contracts
 
 
- c_name
- c_email
- c_password
- c_type
- c_rank
+
+
+react deploy ke time env

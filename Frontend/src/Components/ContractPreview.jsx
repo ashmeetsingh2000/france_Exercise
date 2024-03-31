@@ -36,20 +36,22 @@ function ContractPreview() {
                     (<div className='loaderContianer'><div className="loader"></div></div>)
                     :
                     (
-                        <div className="contractPreviewBox">
-                            <h1>{data.contract_tittle}</h1>
-                            <p>{data.contract_body}</p>
-                            <div className="start_end_date">
-                                Contract Duration:
-                                <div>
-                                    <span>{data.contract_sDate}</span>
-                                    To
-                                    <span>{data.contract_eDate}</span>
+                        <div className="contract_wrapper">
+                            <div className="contractPreviewBox">
+                                <h1>{data.contract_tittle}</h1>
+                                <p>{data.contract_body}</p>
+                                <div className="start_end_date">
+                                    Contract Duration:
+                                    <div>
+                                        <span>{data.contract_sDate}</span>
+                                        To
+                                        <span>{data.contract_eDate}</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="contractStatus">
-                                Contract Status:
-                                <span>{data.contract_Status}</span>
+                                <div className="contractStatus">
+                                    Contract Status:
+                                    <span>{data.contract_Status}</span>
+                                </div>
                             </div>
                         </div>
                     )

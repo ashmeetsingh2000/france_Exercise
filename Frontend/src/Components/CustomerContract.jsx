@@ -26,7 +26,15 @@ function CustomerContract() {
     };
 
     const prviewChange = () => {
-        setpreview(true)
+        if (formData.customer_Id != '' &&
+            formData.contract_tittle != '' &&
+            formData.contract_body != '' &&
+            formData.contract_sDate != '' &&
+            formData.contract_eDate != '' &&
+            formData.contract_Status != '') {
+            setpreview(true)
+        }
+        else { }
     };
 
     const handleSubmit = async (e) => {

@@ -60,16 +60,18 @@ function CustomerPage() {
                                             <th>Start Date</th>
                                             <th>End Date</th>
                                             <th>Contract Status</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         {data.map((item, index) => (
-                                            <tr key={index} onClick={() => { openContract(index) }}>
+                                            <tr key={index} >
                                                 <td>{index + 1}</td>
                                                 <td>{item.contract_tittle}</td>
                                                 <td>{item.contract_sDate}</td>
                                                 <td>{item.contract_eDate}</td>
                                                 <td>{item.contract_Status}</td>
+                                                <td onClick={() => { openContract(index) }}><button>View</button></td>
                                             </tr>
                                         ))}
                                     </tbody>

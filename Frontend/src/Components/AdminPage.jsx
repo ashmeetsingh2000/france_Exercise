@@ -45,19 +45,21 @@ function AdminPage() {
                                 <h1>Total Coustomers - {data.length}</h1>
                                 <button onClick={newCustomer}>Add New Customer</button>
                             </div>
-                            <div className='customersList'>
-                                {data.map((item, index) => (
-                                    <div className="customerDetail_box" key={index} onClick={() => { customerDetail(index) }}>
-                                        <p>{item.c_rank}</p>
-                                        <p className='customer_name'>
-                                            <span>{item.c_name}</span>
-                                            <span style={{ margin: '5px 0 0 0', fontSize: '13px' }}>{item.c_email}</span>
-                                        </p>
-                                        <p>{item.c_type}</p>
-                                    </div>
-                                ))}
+                            {data.length == 0 ? (<div style={{ fontSize: "20px", textAlign: 'center' }}>No Customers Found</div>) : (
+                                <div className='customersList'>
+                                    {data.map((item, index) => (
+                                        <div className="customerDetail_box" key={index} onClick={() => { customerDetail(index) }}>
+                                            <p>{item.c_rank}</p>
+                                            <p className='customer_name'>
+                                                <span>{item.c_name}</span>
+                                                <span style={{ margin: '5px 0 0 0', fontSize: '13px' }}>{item.c_email}</span>
+                                            </p>
+                                            <p>{item.c_type}</p>
+                                        </div>
+                                    ))}
 
-                            </div>
+                                </div>
+                            )}
                         </>
                     )
             }
