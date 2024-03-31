@@ -1,9 +1,9 @@
 ====================== [ Project Setup instructions ] ======================
 
-There is no need to setup anything in your local machine, I have hosted Both Backend Server And React App on a free hosting website named vercel.
-Below I am dropping link of Contract Generator Web App
+There is no need to setup anything on your local machine, I have hosted Both Backend Server And React App on a free hosting website named Vercel.
+Below I am dropping a link of the Contract Generator Web App
 
-Link: 
+Link: https://france-exercise-frontend.vercel.app
 
 ====================== [ Project Setup instructions ] ======================
 
